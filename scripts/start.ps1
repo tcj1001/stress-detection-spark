@@ -57,8 +57,10 @@ if (-not $SkipDatabaseUpdate) {
 $services = @()
 if (Test-Path -LiteralPath $pidFile) {
     try {
-        $services = @(Get-Content -LiteralPath $pidFile -Raw | ConvertFrom-Json) |
-            Where-Object { Get-Process -Id $_.Id -ErrorAction SilentlyContinue }
+        $services = @(
+            @(Get-Content -LiteralPath $pidFile -Raw | ConvertFrom-Json) |
+                Where-Object { Get-Process -Id $_.Id -ErrorAction SilentlyContinue }
+        )
     }
     catch {
         $services = @()
