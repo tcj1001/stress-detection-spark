@@ -1,0 +1,43 @@
+# Local secrets and environment overrides
+.env
+.env.*
+!.env.example
+config/local.env.ps1
+*.local
+
+# Raw health data
+data/raw/*.csv
+!data/raw/README.md
+
+# User-owned local reference papers (not part of the project repository)
+/参考文献/
+
+# Offline installers, retained caches, and dependencies
+packages/*
+!packages/README.md
+**/node_modules/
+
+# Build output
+**/dist/
+**/target/
+coverage/
+
+# Runtime files
+logs/
+*.log
+*.pid
+*.sqlite3
+
+# Python caches
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# IDE and operating-system files
+**/.vscode/
+**/.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.suo
+*.user

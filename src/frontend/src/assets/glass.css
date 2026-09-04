@@ -1,0 +1,535 @@
+/* ========== Glassmorphism Theme ========== */
+
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.12);
+  --glass-bg-hover: rgba(255, 255, 255, 0.18);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  --glass-blur: blur(16px);
+  --glass-radius: 16px;
+  --glass-text: #e8edf3;
+  --glass-text-secondary: rgba(255, 255, 255, 0.6);
+  --glass-card-bg: rgba(255, 255, 255, 0.08);
+  --glass-card-border: rgba(255, 255, 255, 0.15);
+  --glass-sidebar-bg: rgba(15, 23, 42, 0.6);
+  --page-gradient: linear-gradient(135deg, #0f172a 0%, #1e3a5f 30%, #1a1a40 60%, #0f172a 100%);
+}
+
+/* Full-page gradient background */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+/* ========== Glass Card Override ========== */
+.glass-main .el-card,
+.glass-layout .el-card {
+  background: var(--glass-card-bg) !important;
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-card-border) !important;
+  border-radius: var(--glass-radius) !important;
+  box-shadow: var(--glass-shadow) !important;
+  color: var(--glass-text) !important;
+  transition: all 0.3s ease;
+}
+
+.glass-main .el-card:hover {
+  background: var(--glass-bg-hover) !important;
+  border-color: rgba(255, 255, 255, 0.28) !important;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.18) !important;
+  transform: translateY(-2px);
+}
+
+.glass-main .el-card__header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: var(--glass-text) !important;
+  padding: 14px 20px !important;
+}
+
+/* ========== Page Titles ========== */
+.glass-main h2 {
+  color: #ffffff !important;
+  font-weight: 600;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.5px;
+}
+
+/* ========== Sidebar Glass ========== */
+.glass-sidebar {
+  background: var(--glass-sidebar-bg) !important;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+}
+
+.glass-sidebar .sidebar-title {
+  padding: 28px 20px 20px;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  text-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+}
+
+.glass-sidebar .el-menu {
+  background: transparent !important;
+  border-right: none !important;
+}
+
+.glass-sidebar .el-menu-item {
+  margin: 4px 8px;
+  border-radius: 10px !important;
+  color: rgba(255, 255, 255, 0.65) !important;
+  transition: all 0.3s ease;
+  height: 46px;
+  line-height: 46px;
+}
+
+.glass-sidebar .el-menu-item:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+}
+
+.glass-sidebar .el-menu-item.is-active {
+  background: rgba(59, 130, 246, 0.25) !important;
+  color: #ffffff !important;
+  font-weight: 600;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+}
+
+/* ========== Main Content Area ========== */
+.glass-main {
+  background: var(--page-gradient) !important;
+  position: relative;
+  padding: 28px !important;
+  overflow-y: auto;
+}
+
+.glass-main::before {
+  content: '';
+  position: fixed;
+  top: -50%;
+  right: -30%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.glass-main::after {
+  content: '';
+  position: fixed;
+  bottom: -30%;
+  left: -20%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* ========== Tables ========== */
+.glass-main .el-table {
+  background: transparent !important;
+  color: var(--glass-text) !important;
+}
+
+.glass-main .el-table th.el-table__cell {
+  background: rgba(255, 255, 255, 0.06) !important;
+  color: var(--glass-text) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.glass-main .el-table tr {
+  background: transparent !important;
+}
+
+.glass-main .el-table--striped .el-table__body tr.el-table__row--striped td.el-table__cell {
+  background: rgba(255, 255, 255, 0.03) !important;
+}
+
+.glass-main .el-table td.el-table__cell {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  color: var(--glass-text) !important;
+}
+
+.glass-main .el-table__body tr:hover > td.el-table__cell {
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+
+.glass-main .el-table--border .el-table__cell {
+  border-right: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+.glass-main .el-table__empty-text {
+  color: var(--glass-text-secondary) !important;
+}
+
+.glass-main .el-table--enable-row-hover .el-table__body tr:hover > td.el-table__cell {
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* ========== Tags ========== */
+.glass-main .el-tag {
+  border: none !important;
+}
+
+.glass-main .el-tag--danger.el-tag--light,
+.glass-main .el-tag--danger.el-tag--plain,
+.glass-main .el-tag--danger.el-tag--dark {
+  background: rgba(245, 108, 108, 0.2) !important;
+  color: #fca5a5 !important;
+}
+
+.glass-main .el-tag--warning.el-tag--light,
+.glass-main .el-tag--warning.el-tag--plain,
+.glass-main .el-tag--warning.el-tag--dark {
+  background: rgba(230, 162, 60, 0.2) !important;
+  color: #fbbf24 !important;
+}
+
+.glass-main .el-tag--success.el-tag--light,
+.glass-main .el-tag--success.el-tag--plain,
+.glass-main .el-tag--success.el-tag--dark {
+  background: rgba(103, 194, 58, 0.2) !important;
+  color: #86efac !important;
+}
+
+.glass-main .el-tag--info.el-tag--light,
+.glass-main .el-tag--info.el-tag--plain,
+.glass-main .el-tag--info.el-tag--dark {
+  background: rgba(144, 147, 153, 0.2) !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.glass-main .el-tag--primary.el-tag--light,
+.glass-main .el-tag--primary.el-tag--plain,
+.glass-main .el-tag--primary.el-tag--dark {
+  background: rgba(64, 158, 255, 0.2) !important;
+  color: #93c5fd !important;
+}
+
+/* ========== Select / Input ========== */
+.glass-main .el-select .el-input__wrapper,
+.glass-main .el-select__wrapper,
+.glass-main .el-input__wrapper {
+  background: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 8px;
+}
+
+.glass-main .el-input__inner,
+.glass-main .el-select__input,
+.glass-main .el-select__selected-item,
+.glass-main .el-select .el-select__placeholder,
+.glass-main .el-select__placeholder {
+  color: var(--glass-text) !important;
+}
+
+.glass-main .el-select .el-select__placeholder.is-transparent,
+.glass-main .el-input__inner::placeholder {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.glass-main .el-select__suffix,
+.glass-main .el-select .el-icon,
+.glass-main .el-input__suffix .el-icon {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Select dropdown popup (mounted on body) */
+.el-select-dropdown {
+  background: rgba(15, 23, 42, 0.92) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+.el-select-dropdown .el-select-dropdown__item {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.el-select-dropdown .el-select-dropdown__item:hover,
+.el-select-dropdown .el-select-dropdown__item.hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+}
+
+.el-select-dropdown .el-select-dropdown__item.is-selected {
+  color: #60a5fa !important;
+  font-weight: 600;
+}
+
+.el-select-dropdown .el-select-dropdown__empty {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.el-popper.is-light {
+  background: rgba(15, 23, 42, 0.92) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+.el-popper.is-light .el-popper__arrow::before {
+  background: rgba(15, 23, 42, 0.92) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+/* Form label */
+.glass-main .el-form-item__label {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+.glass-main .el-select .el-input__wrapper:hover,
+.glass-main .el-input__wrapper:hover {
+  border-color: rgba(59, 130, 246, 0.4) !important;
+}
+
+/* ========== Pagination ========== */
+.glass-main .el-pagination {
+  color: var(--glass-text-secondary) !important;
+}
+
+.glass-main .el-pagination button {
+  background: transparent !important;
+  color: var(--glass-text-secondary) !important;
+}
+
+/* ========== Descriptions / Text ========== */
+.glass-main span,
+.glass-main p,
+.glass-main div,
+.glass-main label {
+  color: var(--glass-text);
+}
+
+.glass-main .el-card b {
+  color: #ffffff;
+}
+
+/* ========== Login / Register Glass ========== */
+.glass-auth-wrap {
+  min-height: 100vh;
+  background: var(--page-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-auth-wrap::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.glass-auth-wrap::after {
+  content: '';
+  position: absolute;
+  bottom: -15%;
+  left: -10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.glass-auth-card {
+  width: 400px;
+  background: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25) !important;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.glass-auth-card h2 {
+  color: #ffffff !important;
+  margin: 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.glass-auth-card p {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.glass-auth-card .el-input__wrapper {
+  background: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 10px;
+}
+
+.glass-auth-card .el-input__inner {
+  color: #ffffff !important;
+}
+
+.glass-auth-card .el-input__inner::placeholder {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.glass-auth-card .el-button--primary {
+  background: rgba(59, 130, 246, 0.6) !important;
+  border: 1px solid rgba(59, 130, 246, 0.4) !important;
+  border-radius: 10px;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.glass-auth-card .el-button--primary:hover {
+  background: rgba(59, 130, 246, 0.8) !important;
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+  transform: translateY(-1px);
+}
+
+.glass-auth-card .el-link {
+  color: rgba(96, 165, 250, 0.9) !important;
+}
+
+.glass-auth-card .el-form-item__error {
+  color: #fca5a5 !important;
+}
+
+/* ========== Scrollbar ========== */
+.glass-main::-webkit-scrollbar {
+  width: 6px;
+}
+
+.glass-main::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.glass-main::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+}
+
+.glass-main::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* ========== Stat Cards (Dashboard) ========== */
+.glass-main .el-card .el-icon {
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.15));
+}
+
+/* ========== Logout Button ========== */
+.glass-sidebar .logout-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  padding: 0 12px;
+}
+
+.glass-sidebar .logout-btn .el-button {
+  color: rgba(255, 255, 255, 0.5) !important;
+  width: 100%;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.glass-sidebar .logout-btn .el-button:hover {
+  color: #fca5a5 !important;
+  background: rgba(239, 68, 68, 0.1) !important;
+  border-radius: 8px;
+}
+
+/* ========== Dialog ========== */
+.el-dialog {
+  background: rgba(15, 23, 42, 0.95) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4) !important;
+}
+
+.el-dialog__header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.el-dialog__title {
+  color: #ffffff !important;
+}
+
+.el-dialog__headerbtn .el-dialog__close {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.el-dialog__body {
+  color: var(--glass-text) !important;
+}
+
+.el-dialog .el-input__wrapper {
+  background: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 8px;
+}
+
+.el-dialog .el-input__inner {
+  color: #ffffff !important;
+}
+
+.el-dialog .el-input__inner::placeholder {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.el-dialog .el-form-item__label {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+.el-dialog .el-input.is-disabled .el-input__wrapper {
+  background: rgba(255, 255, 255, 0.04) !important;
+}
+
+.el-dialog .el-input.is-disabled .el-input__inner {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.el-overlay {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+/* ========== MessageBox ========== */
+.el-message-box {
+  background: rgba(15, 23, 42, 0.95) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 16px !important;
+}
+
+.el-message-box__title {
+  color: #ffffff !important;
+}
+
+.el-message-box__message {
+  color: var(--glass-text) !important;
+}
+
+.el-message-box__headerbtn .el-message-box__close {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* ========== Layout Container ========== */
+.glass-layout {
+  height: 100vh;
+  background: var(--page-gradient);
+}
